@@ -1,0 +1,26 @@
+<div>
+    <img src="../../../assets/3.jpg" alt="Imagen de perfil">
+    <h1>Clientes</h1>
+</div>
+<nav>
+    <ul ngbNav [(activeId)]="menuId" class="nav-pills">
+        <li [ngbNavItem]="1">
+            <a ngbNavLink [routerLink]="['/']" routerLinkActive="router-link-active">
+                <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                Vista Card
+            </a>
+        </li>
+        <li [ngbNavItem]="2">
+            <a ngbNavLink [routerLink]="['/lista']" routerLinkActive="router-link-active">
+                <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                Lista
+            </a>
+        </li>
+        <li [ngbNavItem]="3">
+            <a ngbNavLink [routerLink]="['/adicionar']" routerLinkActive="router-link-active">
+                <mat-icon aria-hidden="false" aria-label="Example circle icon">add_circle_outline</mat-icon>
+                Adicionar
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,11 @@
+<ul>
+    <li *ngFor="let cliente of listaClientes">
+        <div id="imagen">
+            <img src="../../../assets/{{cliente.img}}" alt="Imagen de perfil">
+        </div>
+        <div id="datos">
+            <p>{{cliente.name}} {{cliente.lastname}}</p>
+            <p>{{cliente.country}}, {{cliente.city}}</p>
+        </div>
+    </li>
+</ul>

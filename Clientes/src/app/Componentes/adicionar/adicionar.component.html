@@ -1,0 +1,80 @@
+<div id="divform">
+    <form [formGroup]="formulario" id="formulario" (reset)="desactivar()" (ngSubmit)="agregarCliente()" novalidate>
+        <ul>
+            <li>
+                <label class="form-label">Nombres</label>
+                <input type="text" id="nombre" class="form-control" formControlName="name">
+                <div *ngIf="formulario.controls['name'].invalid && (formulario.controls['name'].dirty || formulario.controls['name'].touched)" class="alert alert-danger">
+                    <div *ngIf="formulario.controls['name'].hasError('required')">
+                        Campo Obligatorio
+                    </div>
+                    <div *ngIf="formulario.controls['name'].hasError('maxlength')">
+                        Ha superado el límite de caracteres 
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label class="form-label">Apellidos</label>
+                <input type="text" id="apellido" class="form-control" formControlName="lastname">
+                <div *ngIf="formulario.controls['lastname'].invalid && (formulario.controls['lastname'].dirty || formulario.controls['lastname'].touched)" class="alert alert-danger">
+                    <div *ngIf="formulario.controls['lastname'].hasError('required')">
+                        Campo Obligatorio
+                    </div>
+                    <div *ngIf="formulario.controls['lastname'].hasError('maxlength')">
+                        Ha superado el límite de caracteres 
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label class="form-label">Género</label>
+                <div id="divradio">
+                    <div><input type="radio" class="form-check-input" name="gender" id="hombre" value="1" formControlName="gender">Hombre</div>
+                    <div><input type="radio" class="form-check-input" name="gender" id="mujer" value="2" formControlName="gender">Mujer</div>
+                    <div><input type="radio" class="form-check-input" name="gender" id="otro" value="3" formControlName="gender">Otro</div>
+                </div>
+            </li>
+            <li>
+                <label class="form-label">Pais</label>
+                <select id="pais" class="form-control" formControlName="country">
+                    <option value="0" disabled [defaultSelected]=true>Select</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Venezuela">Venezuela</option>
+                </select>
+                <div *ngIf="formulario.controls['country'].invalid && (formulario.controls['country'].dirty || formulario.controls['country'].touched)" class="alert alert-danger">
+                    <div *ngIf="formulario.controls['country'].hasError('required')">
+                        Campo Obligatorio
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label class="form-label">Ciudad</label>
+                <input type="text" id="ciudad" class="form-control" formControlName="city">
+                <div *ngIf="formulario.controls['city'].invalid && (formulario.controls['city'].dirty || formulario.controls['city'].touched)" class="alert alert-danger">
+                    <div *ngIf="formulario.controls['city'].hasError('required')">
+                        Campo Obligatorio
+                    </div>
+                    <div *ngIf="formulario.controls['city'].hasError('maxlength')">
+                        Ha superado el límite de caracteres 
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="botones">
+                    <button id="cancelar" type="reset">
+                        <span *ngIf="botonReset">Cancelar</span>
+                        <span *ngIf="!botonReset">Crear Otro</span>
+                    </button>
+                    <button id="crear" type="submit" [disabled]="!formulario.valid">Crear</button>
+                </div>
+            </li>
+            <li *ngIf="msgValidacion" class="alert alert-success" id="validacion">
+                <h2>Cliente Agregado con Exito! :)</h2>
+            </li>
+        </ul>
+    </form>
+    
+</div>
